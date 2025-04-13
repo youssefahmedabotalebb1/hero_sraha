@@ -1,13 +1,13 @@
 // تكوين Firebase - سيتم استبداله بالبيانات الخاصة بك
 const firebaseConfig = {
     // يرجى ملء هذه البيانات من لوحة تحكم Firebase الخاصة بك
-    apiKey: "",
-    authDomain: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: "",
-    databaseURL: ""
+    apiKey: "AIzaSyAPd-LuhhGPJqg4f9v7-s8-KxHwVkDAfOo",
+    authDomain: "omarocoo-5c4a1.firebaseapp.com",
+    projectId: "omarocoo-5c4a1",
+    storageBucket: "omarocoo-5c4a1.appspot.com",
+    messagingSenderId: "643985793304",
+    appId: "1:643985793304:web:b3caa2b157b64f2acd3e6d",
+    databaseURL: "https://omarocoo-5c4a1-default-rtdb.firebaseio.com/"
 };
 
 // تهيئة Firebase
