@@ -1,13 +1,13 @@
 // تكوين Firebase - سيتم استبداله بالبيانات الخاصة بك
 const firebaseConfig = {
     // يرجى ملء هذه البيانات من لوحة تحكم Firebase الخاصة بك
-    apiKey: "AIzaSyAPd-LuhhGPJqg4f9v7-s8-KxHwVkDAfOo",
-    authDomain: "omarocoo-5c4a1.firebaseapp.com",
-    projectId: "omarocoo-5c4a1",
-    storageBucket: "omarocoo-5c4a1.appspot.com",
-    messagingSenderId: "643985793304",
-    appId: "1:643985793304:web:b3caa2b157b64f2acd3e6d",
-    databaseURL: "https://omarocoo-5c4a1-default-rtdb.firebaseio.com/"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    databaseURL: ""
 };
 
 // تهيئة Firebase
@@ -40,25 +40,31 @@ const sendMessageStatus = document.getElementById('send-message');
 
 // إعداد الحدث عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
-    // تفقد حالة المستخدم عند تحميل الصفحة
-    auth.onAuthStateChanged(user => {
-        if (user) {
-            // المستخدم قد سجل الدخول
-            showUserProfile(user);
-            loadUserMessages(user.uid);
-        } else {
-            // المستخدم غير مسجل الدخول
-            showAuthSection();
-        }
-    });
-
-    // التحقق إذا كانت الصفحة مفتوحة لإرسال رسالة
+    // أولاً، التحقق إذا كانت الصفحة مفتوحة لإرسال رسالة
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('user');
     
     if (userId) {
-        // إظهار قسم إرسال الرسائل وإخفاء الأقسام الأخرى
+        // إظهار قسم إرسال الرسائل وإخفاء الأقسام الأخرى فوراً
+        authSection.classList.add('hidden');
+        profileSection.classList.add('hidden');
+        messagesSection.classList.add('hidden');
+        sendMessageSection.classList.remove('hidden');
+        
+        // استدعاء الدالة لتحميل بيانات المستخدم المستلم
         showSendMessageSection(userId);
+    } else {
+        // تفقد حالة المستخدم فقط إذا لم تكن الصفحة لإرسال رسالة
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // المستخدم قد سجل الدخول
+                showUserProfile(user);
+                loadUserMessages(user.uid);
+            } else {
+                // المستخدم غير مسجل الدخول
+                showAuthSection();
+            }
+        });
     }
 
     // تعيين أحداث النقر للأزرار
@@ -247,6 +253,7 @@ function createMessageCard(message) {
 
 // عرض قسم إرسال الرسائل
 async function showSendMessageSection(userId) {
+    // التأكد من إظهار قسم إرسال الرسائل وإخفاء الأقسام الأخرى
     authSection.classList.add('hidden');
     profileSection.classList.add('hidden');
     messagesSection.classList.add('hidden');
@@ -268,6 +275,8 @@ async function showSendMessageSection(userId) {
         }
     } catch (error) {
         console.error('خطأ في تحميل بيانات المستلم:', error);
+        sendMessageStatus.textContent = 'حدث خطأ أثناء تحميل بيانات المستلم. تأكد من صحة الرابط.';
+        sendMessageStatus.className = 'message error-message';
     }
 }
 
