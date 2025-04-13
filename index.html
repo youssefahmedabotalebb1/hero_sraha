@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هيرو | رسائل صريحة</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>هيرو</h1>
+            <p class="subtitle">تلقى رسائل صريحة من أصدقائك بشكل مجهول</p>
+        </header>
+
+        <div id="auth-section" class="section">
+            <h2>تسجيل الدخول / إنشاء حساب</h2>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="البريد الإلكتروني">
+                <input type="password" id="password" placeholder="كلمة المرور">
+                <button id="login-btn">تسجيل الدخول</button>
+                <button id="signup-btn">إنشاء حساب</button>
+            </div>
+            <p id="auth-message" class="message"></p>
+        </div>
+
+        <div id="profile-section" class="section hidden">
+            <h2>الملف الشخصي</h2>
+            <p id="welcome-message">مرحباً بك!</p>
+            <div class="profile-info">
+                <p>رابط صفحتك الشخصية:</p>
+                <div class="link-container">
+                    <input type="text" id="profile-link" readonly>
+                    <button id="copy-link-btn">نسخ الرابط</button>
+                </div>
+                <p class="hint">شارك هذا الرابط مع أصدقائك ليرسلوا لك رسائل مجهولة</p>
+            </div>
+            <button id="logout-btn">تسجيل الخروج</button>
+        </div>
+
+        <div id="messages-section" class="section hidden">
+            <h2>الرسائل المستلمة</h2>
+            <div id="messages-container">
+                <!-- سيتم إضافة الرسائل هنا عن طريق جافاسكريبت -->
+            </div>
+        </div>
+
+        <div id="send-message-section" class="section hidden">
+            <h2>أرسل رسالة مجهولة إلى <span id="recipient-name"></span></h2>
+            <div class="form-group">
+                <textarea id="message-text" placeholder="اكتب رسالتك هنا..."></textarea>
+                <button id="send-message-btn">إرسال</button>
+            </div>
+            <p id="send-message" class="message"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>@HERO_X_X_X &copy; 2025 - منصة للرسائل المجهولة</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

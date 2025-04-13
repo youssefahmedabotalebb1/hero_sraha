@@ -1,0 +1,214 @@
+/* إعدادات عامة */
+:root {
+    --primary-color: #4267B2;
+    --secondary-color: #6C63FF;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg: #fff;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --success: #28a745;
+    --error: #dc3545;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    direction: rtl;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* الهيدر */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* الأقسام */
+.section {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+}
+
+.section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* المدخلات والأزرار */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+input, textarea, button {
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* رسائل النظام */
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: var(--success);
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: var(--error);
+    border: 1px solid #f5c6cb;
+}
+
+/* الملف الشخصي */
+.profile-info {
+    margin: 20px 0;
+}
+
+.link-container {
+    display: flex;
+    margin: 10px 0;
+}
+
+#profile-link {
+    flex-grow: 1;
+    background-color: #f4f4f4;
+}
+
+#copy-link-btn {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.hint {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* الرسائل */
+#messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    border-right: 4px solid var(--secondary-color);
+}
+
+.message-content {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.message-date {
+    text-align: left;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* القسم الخاص بإرسال الرسائل */
+#send-message-section #recipient-name {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* الفوتر */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .link-container {
+        flex-direction: column;
+    }
+    
+    #copy-link-btn {
+        margin-right: 0;
+        margin-top: 10px;
+    }
+}
